@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import './PokemonItem.css'
+import React, { Component } from 'react';
+import './PokemonItem.css';
 import PokemonList from './PokemonList';
 
-export default class PokemonItem extends Component {
+class PokemonItem extends Component {
   render() {
     const { pokemon } = this.props;
 
@@ -13,7 +13,7 @@ export default class PokemonItem extends Component {
         <p className="type-2">{pokemon.type_2}</p>
 
         <img
-          src={pokemon.image}
+          src={pokemon.url_image}
           alt={pokemon.pokemon}
         />
       </li>

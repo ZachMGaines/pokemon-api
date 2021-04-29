@@ -1,15 +1,15 @@
 import { Component } from 'react';
-import request from 'superagent'
+import request from 'superagent';
 import './App.css';
 import React from 'react';
 import Header from '../src/Header/Header.js';
-import PokemonList from '../src/PokemonList.js'
+import PokemonList from '../src/PokemonList.js';
 
 const POKEMON_API_URL = 'https://pokedex-alchemy.herokuapp.com/api/pokedex';
 
 class App extends Component {
   state = {
-    pokemon: null;
+    pokemon: null,
     loading: false,
     search: '',
     page: 1
@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   async fetchPokemon() {
-    const { search, page } = this.state
+    const { search, page } = this.state;
 
     this.setState({ loading: true });
 
@@ -30,13 +30,13 @@ class App extends Component {
         .query({ pokemon: search })
         .query({ page: page });
 
-      this.setState([pokemon: response.body])
+      this.setState({ pokemon: response.body.results });
     }
     catch (err) {
-      console.log(err)
+      console.log(err);
     }
     finally {
-      this.setState({ loading: false })
+      this.setState({ loading: false });
     }
   }
 
@@ -62,21 +62,21 @@ class App extends Component {
   }
 
   render() {
-    const { pokemon, loading, page }
+    const { pokemon, loading, page } = this.state;
 
     return (
       <div className="App">
 
         <Header />
 
-        <section className="search-options">
+        {/* <section className="search-options">
           <Search onSearch={this.handleSearch} />
           <Paging
             page={page}
             onPrev={this.handlePrevPage}
             onNext={this.handleNextPage}
           />
-        </section>
+        </section> */}
 
         <main>
           {pokemon && (pokemon.length
