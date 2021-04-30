@@ -1,8 +1,27 @@
 .App {
+  height: 100vh;
   display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  background: rgb(247, 200, 166);
 }
 
-/* TODO: remove **/
-.temp-images {
-  height: 200px;
+.search-options {
+  background: palegoldenrod;
+  border-bottom: paleturquoise;
+  padding: 10px 20px;
+  display: flex;
+  gap: 10px;
+}
+
+main {
+  overflow: auto;
+  padding: 20px;
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 500px;
+  object-fit: contain;
 }

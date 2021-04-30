@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Search.css';
 
 export default class Search extends Component {
   state = {
@@ -27,7 +28,7 @@ export default class Search extends Component {
           onChange={this.handleSearchChange}
         />
 
-        <button>=O</button>
+        <button>Find Pokemon</button>
 
 
 
