@@ -3,11 +3,11 @@ import request from 'superagent';
 import './App.css';
 import React from 'react';
 import Header from '../src/Header/Header.js';
-import PokemonList from '../src/PokemonList.js';
+import PokemonList from './PokemonList.js';
 import Search from './Search';
 import Paging from './Paging';
 
-const POKEMON_API_URL = 'https://pokedex-alchemy.herokuapp.com/api/pokedex?page=1&perPage=50';
+const POKEMON_API_URL = 'https://pokedex-alchemy.herokuapp.com/api/pokedex';
 
 class App extends Component {
   state = {
@@ -31,8 +31,8 @@ class App extends Component {
         .get(POKEMON_API_URL)
         .query({ pokemon: search })
         .query({ page: page });
-
-      this.setState({ pokemon: response.body.results, page: page });
+      console.log(response.body);
+      this.setState({ pokemon: response.body.results });
     }
     catch (err) {
       console.log(err);
